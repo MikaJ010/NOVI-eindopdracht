@@ -2,11 +2,133 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eindopdracht</title>
+    <title>Search Page</title>
     <link rel="stylesheet" href="/index.4d663569.css">
+    <link rel="stylesheet" href="/index.4a39348a.css">
     <script defer="" src="/index.4d6bcbeb.js"></script>
 </head>
 <body>
+<header class="outer-container">
+    <div class="inner-container">
+
+        <nav class="header__navbar">
+            <p class="header__logo">The Clueless Cook</p>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Calculator</li>
+            </ul>
+        </nav>
+
+        <div class="outer-container header__hero">
+            <div class="inner-container header__content">
+
+                <h1>Delicious Recipes.</h1>
+                <p>Daily updated.</p>
+                <button class="btn">Find Recipes <span>&#8594;</span></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="outer-container"></section>
+    <div class="inner__container main__card-box"></div>
+
+    <section class="outer-container">
+        <div class="inner-container main__search-form-container">
+            <form class="main__search-form" action="">
+                <label for="search-query">
+                    <input class="" id="search-query" name="search-query" type="text" placeholder="Recipe search">
+                </label>
+                <label for="meal-type">
+                    <select name="meal-typ" id="meal-type">
+                        <option selected="" value="">Meal type</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="desert">Desert</option>
+                    </select>
+                </label>
+                <label for="cuisine-field">
+                    <select name="cuisine-field" id="cuisine-field">
+                        <option selected="" value="">Cuisine</option>
+                        <option value="French">French</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Dutch">Dutch</option>
+                        <option value="Asian">Asian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Eastern">Eastern</option>
+                    </select>
+                </label>
+                <label for="dieet-type-field">
+                    <select name="dieet-type-field" id="dieet-type-field">
+                        <option selected="" value="">Diet type</option>
+                        <option value="Breakfast">Low Carb</option>
+                        <option value="Teatime">Vegan</option>
+                        <option value="Lunch">Low Kcal</option>
+                        <option value="Dinner">Lactose free</option>
+                    </select>
+                </label>
+                <label for="time-field">
+                    <select name="time-field" id="time-field">
+                        <option selected="" value="">Time</option>
+                        <option value="0-20 MIN">0-20 MIN</option>
+                        <option value="20-40 MIN">20-40 MIN</option>
+                        <option value="40-60 MIN">40-60 MIN</option>
+                        <option value="60 MIN +">60 MIN +</option>
+                    </select>
+                </label>
+                <button class="btn btn-form">Search <span>&#8594;</span></button>
+            </form>
+        </div>
+    </section>
+    <section class="outer-container">
+        <div class="inner-container main__search-result">
+            <article>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="outer-container footer__container">
+
+    <div class="inner-container footer__list">
+        <h4>Information</h4>
+        <ul>
+            <li>Nullam a enim</li>
+            <li>Quisque cursus</li>
+            <li>Cras egestas</li>
+            <li>Nunc vitae</li>
+        </ul>
+    </div>
+    <div class="inner-container footer__list">
+        <h4>About</h4>
+        <ul>
+            <li>Quisque cursus</li>
+            <li>Cras egestas</li>
+            <li>Nunc vitae</li>
+        </ul>
+    </div>
+    <div class="inner-container footer__list">
+        <h4>Contact</h4>
+        <ul>
+            <li>Cras egestas</li>
+            <li>Nunc vitae</li>
+            <li>Nullam a enim</li>
+        </ul>
+    </div>
+    <div>
+        <h4>Social</h4>
+        <div class="footer__social">
+            <img src="/facebook.796efe80.png" alt="facebook-icon" class="footer__icons">
+            <img src="/instagram.4501520a.png" alt="instagram-icon" class="footer__icons">
+            <img src="/linkedin.5e72bf05.png" alt="linkedin-icon" class="footer__icons">
+            <img src="/twitter.80628292.png" alt="twitter-icon" class="footer__icons">
+        </div>
+    </div>
+
+</footer>
 
 </body>
 </html>

@@ -532,6 +532,7 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"gLLPy":[function(require,module,exports) {
+console.log("test test test");
 
 },{}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire19ff")
 
