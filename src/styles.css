@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+:root {
+    --clr-primary-800: hsl(210deg 34% 24%);
+    --clr-accent-400: hsl(186deg 37% 59%);
+    --clr-neutral-100: hsl(0deg 0% 93%);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,6 +14,7 @@
 
 body {
     font-family: Poppins, sans-serif;
+    color: var(--clr-primary-800);
 }
 
 /*  ----------------- REUSABLE ------------- */
@@ -27,7 +34,7 @@ body {
 }
 
 .btn {
-    background-color: rgb(95, 169, 176);
+    background-color: var(--clr-accent-400);
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 0.5em;
@@ -35,6 +42,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 150px;
+    flex-shrink: 0;
 }
 
 /* ---------  HEADER ----------*/
@@ -46,6 +54,7 @@ body {
     height: 70px;
     padding: 0 250px;
     align-items: center;
+    background-color: var(--clr-neutral-100);
 }
 
 .header__navbar ul {
@@ -60,8 +69,16 @@ body {
     padding-right: 30px;
     font-family: 'austeinscript', sans-serif;
     font-size: 2em;
-    color: #004467;
+    color: var(--clr-primary-800);
+}
 
+.header__navbar a {
+   color: var(--clr-primary-800);
+    text-decoration: none;
+}
+
+.header__navbar a:hover {
+    font-weight: bold;
 }
 
 .header__hero {
@@ -89,8 +106,23 @@ body {
 /* ---------  MAIN ----------*/
 
 .main__card-box {
-    height: 300px;
+
 }
+
+.main__random-recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap:25px;
+    width: 1100px;
+    height: 250px;
+    margin: 30px 0;
+}
+
+.recipe-card1 { grid-area: 1 / 1 / 2 / 2; }
+.recipe-card2{ grid-area: 1 / 2 / 2 / 3; }
+.recipe-card3 { grid-area: 1 / 3 / 2 / 4; }
 
 .main__search-form-container {
     display: flex;
@@ -99,7 +131,7 @@ body {
     align-items: center;
     width: 100%;
     height: 150px;
-    background-color: #004467;
+    background-color: var(--clr-primary-800);
 }
 
 .main__search-form {
@@ -107,8 +139,11 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 65%;
+    gap: 20px;
+    /*flex-shrink: 1;*/
+    /*width: 65%;*/
     height: 50px;
+    /*flex-wrap: wrap;*/
 }
 
 input{
@@ -119,41 +154,63 @@ input{
     width: 200px;
     height: 35px;
     border-radius: 5px;
-    padding: 0 20px;
     font-size: 1em;
+    padding-left: 10px;
 }
 
-.main__search-form-container select {
+.main__search-form select {
     background-color: white;
     font-size: medium;
     font-family: Poppins, sans-serif;
     width: 200px;
     height: 35px;
     border-radius: 5px;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
+    /*flex-shrink: 1;*/
 }
 
 .btn-form {
     height: 35px;
     font-size: 1em;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 
-.main__search-result {
-    height: 300px;
+.main__result-recipe-cards {
+    /*border: 1px solid red;*/
+    width: 1100px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 25px;
+    margin: 30px 0;
 }
+
+.card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.recipe-card4 {grid-area: 1 / 1 / 2 / 2;}
+.recipe-card5 {grid-area: 1 / 2 / 2 / 3;}
+.recipe-card6 {grid-area: 1 / 3 / 2 / 4;}
+.recipe-card7 {grid-area: 2 / 1 / 3 / 2;}
+.recipe-card8 {grid-area: 2 / 2 / 3 / 3;}
+.recipe-card9 {grid-area: 2 / 3 / 3 / 4;}
+
+
+
+
 
 /* ---------  FOOTER  ----------*/
 .footer__container {
-    background-color: #004467;
+    background-color: var(--clr-primary-800);
     padding: 30px 250px;
     gap: 30px;
 }
 
 .footer__list {
     align-items: baseline;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 .footer__list li {
@@ -169,12 +226,12 @@ input{
 }
 
 h4 {
-    color: #5fa9b0;
+    color: var(--clr-accent-400);
     margin-bottom: 30px;
 }
 
 .footer__icons {
-    background-color: #38A3A5;
+    background-color: var(--clr-accent-400);
     border-radius: 80%;
     margin-right: 10px ;
     padding: 5px;
