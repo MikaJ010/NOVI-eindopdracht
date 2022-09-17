@@ -98,15 +98,25 @@ body {
   font-size: 1.6em;
 }
 
+.btn-header a {
+  color: var(--clr-primary-800);
+  text-decoration: none;
+}
+
 .main__random-recipe-cards {
   grid-column-gap: 20px;
   grid-row-gap: 25px;
-  width: 1100px;
+  width: 1250px;
   height: 250px;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
   margin: 30px 0;
   display: grid;
+}
+
+.card {
+  background-color: var(--clr-neutral-100);
+  box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d;
 }
 
 .recipe-card1 {
@@ -167,7 +177,7 @@ input {
 }
 
 .main__result-recipe-cards {
-  width: 1100px;
+  width: 1250px;
   height: 500px;
   grid-column-gap: 20px;
   grid-row-gap: 25px;
@@ -175,10 +185,6 @@ input {
   grid-template-columns: repeat(3, 1fr);
   margin: 30px 0;
   display: grid;
-}
-
-.card {
-  box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d;
 }
 
 .recipe-card4 {
