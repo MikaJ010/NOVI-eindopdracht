@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'austeinscript';
+    src: url('austein-webfont.woff2') format('woff2'),
+    url('austein-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

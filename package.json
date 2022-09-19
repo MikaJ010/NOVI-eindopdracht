@@ -1,0 +1,24 @@
+{
+  "name": "eindopdracht",
+  "version": "1.0.0",
+  "description": "Eindopdracht NOVI Bootcamp Web development",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikaJ010/NOVI-eindopdracht.git"
+  },
+  "author": "Mika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikaJ010/NOVI-eindopdracht/issues"
+  },
+  "homepage": "https://github.com/MikaJ010/NOVI-eindopdracht#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
