@@ -205,9 +205,6 @@ input{
 .recipe-card9 {grid-area: 2 / 3 / 3 / 4;}
 
 
-
-
-
 /* ---------  FOOTER  ----------*/
 .footer__container {
     background-color: var(--clr-primary-800);
