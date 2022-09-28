@@ -23,75 +23,77 @@
             <div class="inner-container header__content">
                 <h1>Delicious Recipes.</h1>
                 <p>Daily updated.</p>
-                <button type="button" class="btn btn-header"><a href="#search-query">Find Recipes <span>&#8594;</span></a> </button>
+                <button type="button" class="btn btn-header"><a href="#">Find Recipes <span>&#8594;</span></a></button>
             </div>
         </div>
     </div>
 </header>
 
 <main>
-<!--Temporary part (will be injected trough jS later line 35-61)-->
-    <section class="outer-container">
-        <div class="inner__container"></div>
 
-    <div class="main__random-recipe-cards">
-        <article class="card recipe-card1">
-            <img src="#" alt="">
-            <h4></h4>
-            <span></span>
-            <span></span>
-            <span></span>
-        </article>
-        <article class="card recipe-card2">
-            <img src="#" alt="">
-            <h4></h4>
-            <span></span>
-            <span></span>
-            <span></span>
-        </article>
-        <article class="card recipe-card3">
-            <img src="#" alt="">
-            <h4></h4>
-            <span></span>
-            <span></span>
-            <span></span>
-        </article>
-    </div>
-    </section>
+        <section class="outer-container">
+            <div class="inner-container">
+
+                <ul class="random-recipe-container">
+                    <!--                Cards via innerhtml-->
+                </ul>
+            </div>
+        </section>
+
 
     <section class="outer-container main__search-form-container">
         <div class="inner-container">
-            <form class="main__search-form" action="">
-                <label for="search-query">
-                    <input class="form__search-field" id="search-query" name="search-query" type="text" placeholder="Recipe search">
+            <form id="onSubmit" class="main__search-form" action="">
+                <label for="ingredient-field">
+                    <input class="form__ingredient-field" id="ingredient-field" name="ingredient-field" type="text"
+                           placeholder="Recipe search">
                 </label>
                 <label for="meal-type">
-                    <select name="meal-typ" id="meal-type">
+                    <select required name="meal-typ" id="meal-type">
                         <option selected value="">Meal type</option>
                         <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option>
-                        <option value="desert">Desert</option>
+                        <option value="brunch">Brunch</option>
+                        <option value="lunch/dinner">Lunch/Dinner</option>
+                        <option value="snack">Snack</option>
+                        <option value="teatime">Teatime</option>
                     </select>
                 </label>
                 <label for="cuisine-field">
                     <select name="cuisine-field" id="cuisine-field">
                         <option selected value="">Cuisine</option>
-                        <option value="French">French</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Dutch">Dutch</option>
-                        <option value="Asian">Asian</option>
-                        <option value="Mexican">Mexican</option>
-                        <option value="Eastern">Eastern</option>
+                        <option value="american">American</option>
+                        <option value="asian">Asian</option>
+                        <option value="british">British</option>
+                        <option value="caribbean">Caribbean</option>
+                        <option value="central europe">Central Europe</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="eastern europe">Eastern Europe</option>
+                        <option value="french">French</option>
+                        <option value="greek">Greek</option>
+                        <option value="indian">Indian</option>
+                        <option value="italian">Italian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="korean">Korean</option>
+                        <option value="kosher">Kosher</option>
+                        <option value="mediterranean">Mediterranean</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="middle eastern">Middle Eastern</option>
+                        <option value="nordic">Nordic</option>
+                        <option value="south american">South American</option>
+                        <option value="south east asian">South East Asian</option>
+                        <option value="world">World</option>
                     </select>
                 </label>
                 <label for="dieet-type-field">
                     <select name="dieet-type-field" id="dieet-type-field">
                         <option selected value="">Diet type</option>
-                        <option value="Breakfast">Low Carb</option>
-                        <option value="Teatime">Vegan</option>
-                        <option value="Lunch">Low Kcal</option>
-                        <option value="Dinner">Lactose free</option>
+                        <option value="balanced">Balanced</option>
+                        <option value="high-fiber">High-Fiber</option>
+                        <option value="high-protein">High-Protein</option>
+                        <option value="low-carb">Low-Carb</option>
+                        <option value="low-fat">Low-Fat</option>
+                        <option value="low-sodium">Low-Sodium</option>
+
                     </select>
                 </label>
                 <label for="time-field">
@@ -103,59 +105,21 @@
                         <option value="60 MIN +">60 MIN +</option>
                     </select>
                 </label>
-                <button class="btn btn-form">Search <span>&#8594;</span></button>
+                <button type='submit' class="btn btn-form">Search <span>&#8594;</span></button>
             </form>
         </div>
+        <div id="main-error"></div>
     </section>
-    <!--Temporary part (will be injected trough jS later, line 111 - 158)-->
+
     <section class="outer-container">
         <div class="inner-container">
-            <div class="main__result-recipe-cards">
-                <article class="card recipe-card4">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-                <article class="card recipe-card5">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-                <article class="card recipe-card6">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-                <article class="card recipe-card7">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-                <article class="card recipe-card8">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-                <article class="card recipe-card9">
-                    <img src="#" alt="">
-                    <h4></h4>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </article>
-            </div>
+
+            <ul id="main__recipe-list" class="main__result-recipe-cards">
+<!--                Cards via innerhtml-->
+            </ul>
         </div>
     </section>
+
 </main>
 
 <footer class="outer-container footer__container">
