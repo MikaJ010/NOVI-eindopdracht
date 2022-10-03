@@ -103,9 +103,8 @@ body {
   text-decoration: none;
 }
 
-.random-recipe-container {
+#random-recipe-container {
   width: 1250px;
-  height: 250px;
   justify-content: space-between;
   margin: 30px 0;
   list-style: none;
@@ -157,26 +156,28 @@ input {
   font-size: 1em;
 }
 
+.btn-form:hover {
+  cursor: pointer;
+}
+
 .main__result-recipe-cards {
   width: 1250px;
-  height: 500px;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 30px 0;
   list-style: none;
   display: flex;
-  overflow: scroll;
 }
 
 .card {
   background-color: var(--clr-neutral-100);
-  width: 30%;
-  height: 46%;
+  width: 400px;
+  height: 300px;
   border-radius: 5px;
-  flex-direction: column;
+  flex-flow: column wrap;
+  flex-shrink: 1;
   margin-bottom: 20px;
   display: flex;
-  overflow: hidden;
   box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d;
 }
 

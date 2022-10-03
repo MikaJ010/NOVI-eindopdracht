@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search Page</title>
+    <title>The Clueless Cook</title>
     <link rel="stylesheet" href="/index.4d663569.css">
     <link rel="stylesheet" href="/index.4a39348a.css">
     <script defer="" src="/index.4d6bcbeb.js"></script>
@@ -34,9 +34,10 @@
         <section class="outer-container">
             <div class="inner-container">
 
-                <ul class="random-recipe-container">
+                <ul id="random-recipe-container">
                     <!--                Cards via innerhtml-->
                 </ul>
+                <p id="upper-error"></p>
             </div>
         </section>
 
@@ -57,8 +58,8 @@
                         <option value="teatime">Teatime</option>
                     </select>
                 </label>
-                <label for="cuisine-field">
-                    <select name="cuisine-field" id="cuisine-field">
+                <label for="cuisine-type">
+                    <select name="cuisine-type" id="cuisine-type">
                         <option selected="" value="">Cuisine</option>
                         <option value="american">American</option>
                         <option value="asian">Asian</option>
@@ -83,8 +84,8 @@
                         <option value="world">World</option>
                     </select>
                 </label>
-                <label for="dieet-type-field">
-                    <select name="dieet-type-field" id="dieet-type-field">
+                <label for="diet-type">
+                    <select name="diet-type" id="diet-type">
                         <option selected="" value="">Diet type</option>
                         <option value="balanced">Balanced</option>
                         <option value="high-fiber">High-Fiber</option>
