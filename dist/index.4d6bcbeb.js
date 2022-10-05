@@ -610,7 +610,9 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dietType) {
         });
         // console.log(response.data.hits)
         const arrayOfRecipes = response.data.hits;
+        // console.log(arrayOfRecipes);
         (0, _createRecipeCardDefault.default)(arrayOfRecipes);
+        console.log(arrayOfRecipes);
     // catch error en show in UI
     } catch (e) {
         const error = document.getElementById("main-error");
@@ -3981,23 +3983,63 @@ parcelHelpers.defineInteropFlag(exports);
 function createRecipeCard(arr) {
     const recipeList = document.getElementById("main__recipe-list");
     recipeList.innerHTML = "";
-    arr.slice(0, 18).map((item)=>{
+    const timeIcon = new Image();
+    timeIcon.src = require("../../assets/icons/time.svg");
+    arr.slice(0, 6).map((item)=>{
         //rounding down calories
-        const caloriesRounded = Math.round(item.recipe.calories);
+        const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += `
-            <li class="card">
+            <li class="card"><a href="https://google.com">
                 <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
                 <div class="card-padding">
-                <h5 class="recipe-card__label">${item.recipe.label}</h5>
-                <p class="recipe-card__info">${caloriesRounded}  Calories | ${item.recipe.ingredients.length} Ingredients</p></div>
+                <h5 class="recipe-card__label">${item.recipe.label.slice(0, 40)}</h5>
+                <div class="card-content-position"><p class="recipe-card__info"><strong>${roundedCalories}</strong> Calories | <strong>${item.recipe.ingredients.length}</strong> Ingredients <span class="margin-text-card"></span><img class='time-icon' src=${timeIcon.src} alt="timeIcon"> ${item.recipe.totalTime} min.</p> </div>
+                </div>
 
-            </li>
+            </a></li>
         `;
     });
 }
 exports.default = createRecipeCard;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7LHtl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../assets/icons/time.svg":"9PaDs"}],"9PaDs":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("gnRNX") + "time.350d0404.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"7LHtl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
@@ -4005,12 +4047,10 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipesCardUpper = require("./createRecipesCardUpper");
 var _createRecipesCardUpperDefault = parcelHelpers.interopDefault(_createRecipesCardUpper);
 async function fetchRecipesUpper(ingredient) {
-    // Declare input values for API
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
     const API_ID = "5bfce901";
     const API_KEY = "0429e1bb472814f5b7f052c5e546afac";
-    //Fetch data from API
     try {
         const response = await (0, _axiosDefault.default).get(URI + ENDPOINT, {
             params: {
@@ -4021,13 +4061,9 @@ async function fetchRecipesUpper(ingredient) {
                 random: true
             }
         });
-        // Variable to hold the array of needed data
         const arrayOfRecipes = response.data.hits;
         (0, _createRecipesCardUpperDefault.default)(arrayOfRecipes);
-        // Cutting the array of so only three recipes will show in the header
         arrayOfRecipes.slice(0, 2);
-    // Invoke function to create a recipe card for the header
-    // Catch error message and show them in the UI
     } catch (e) {
         const error = document.getElementById("upper-error");
         if (e.response.status === 404) error.textContent = "page not found";
@@ -4084,22 +4120,21 @@ exports.default = fetchRecipesUpper;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRecipesCardUpper(arr) {
-    // Variable to link to the list in which the recipe card must be injected
     const recipesListUpper = document.getElementById("random-recipe-container");
-    // Injecting the recipe cards with the right information in HTML
     recipesListUpper.innerHTML = "";
+    const timeIcon = new Image();
+    timeIcon.src = require("../../assets/icons/time.svg");
     arr.slice(0, 3).map((item)=>{
         const roundedCalories = Math.round(item.recipe.calories);
-        recipesListUpper.innerHTML += ` 
-                     <li class="card">
-                 <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
-                 <div class="card-padding">
-                 <h5 class="recipe-card__label">${item.recipe.label}</h5>
-                 <p class="recipe-card__info">${roundedCalories}  Calories | ${item.recipe.ingredients.length} Ingredients</p>
- <!--                <span><img src="../../assets/icons/time.png" alt="time-icon"></span>-->
-                 </div>
-            </li>
-`;
+        recipesListUpper.innerHTML += `
+            <li class="card"><a href="https://google.com">
+                <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
+                <div class="card-padding">
+                <h5 class="recipe-card__label">${item.recipe.label.slice(0, 35)}</h5>
+                <div class="card-content-position"><p class="recipe-card__info"><strong>${roundedCalories}</strong> Calories | <strong>${item.recipe.ingredients.length}</strong> Ingredients <span class="margin-text-card"></span><img class='time-icon' src=${timeIcon.src} alt="timeIcon"> ${item.recipe.totalTime} min.</p> </div>
+                </div>
+            </a></li> 
+        `;
     });
 } // export default function createRecipesCardUpper(arr) {
  //     const recipeListUpper = document.getElementById('random-recipe-container');
@@ -4122,9 +4157,9 @@ function createRecipesCardUpper(arr) {
  //         `
  //         }
  //     )
- // }
+ //
 exports.default = createRecipesCardUpper;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire19ff")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../assets/icons/time.svg":"9PaDs"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire19ff")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map

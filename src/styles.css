@@ -17,6 +17,13 @@ body {
     color: var(--clr-primary-800);
 }
 
+/* ------------------- STYLING FONDS ---------- */
+
+h5 {
+    font-size: 16px;
+}
+
+
 /*  ----------------- REUSABLE ------------- */
 .outer-container {
     width: 100%;
@@ -106,7 +113,11 @@ body {
 .btn-header a {
     color: var(--clr-primary-800);
     text-decoration: none;
+}
 
+.white-space {
+    height: 280px;
+    position: relative;
 }
 
 #random-recipe-container {
@@ -117,6 +128,19 @@ body {
     /*flex-wrap: wrap;*/
     justify-content: space-between;
     list-style: none;
+    position: absolute;
+    top: -60px;
+}
+
+#random-recipe-container .card:nth-of-type(2) {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    top: -15px;
+}
+
+#random-recipe-container .card:nth-of-type(2) .margin-text-card {
+    margin-left: 140px;
 }
 
 .main__search-form-container {
@@ -186,34 +210,69 @@ input{
     /*overflow: auto;*/
 }
 
+/*.card:active {*/
+/*    box-shadow: none;*/
+/*    transition: 1s;*/
+/*}*/
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 .card {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    box-shadow: 4.1px 8.2px 8.2px hsl(0deg 0% 0% / 0.37);
     background-color: var(--clr-neutral-100);
     width: 400px;
-    height: 300px;
+    height: 270px;
     border-radius: 5px;
     flex-shrink: 1;
     flex-wrap: wrap;
+    padding-bottom: 15px;
     /*overflow: hidden;*/
+}
+
+.card a {
+    color: inherit;
+    text-decoration: none;
+    height: 90%;
 }
 
 .recipe-card__img {
     width: 100%;
-    height: 70%;
+    height: 75%;
     object-fit: cover;
     object-position: center;
-    border-radius: inherit;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.time-icon {
+    display: inline;
+    background-image: url("../assets/icons/time.png");
+    /*margin-left: 45px;*/
+}
+
+.card-content-position {
+    display: flex;
+    justify-content: space-between;
+}
+
+.margin-text-card {
+    margin-left: 40px;
 }
 
 .card-padding {
-    padding: 10px 5px 10px 8px;
+    padding: 10px 5px 10px 10px;
 }
 
 .recipe-card__label {
     font-weight: bolder;
+    margin-bottom: 20px
+    /*padding-bottom: 30px;*/
 }
 /* ---------  FOOTER  ----------*/
 .footer__container {
