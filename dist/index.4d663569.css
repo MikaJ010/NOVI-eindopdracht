@@ -156,11 +156,20 @@ input {
   width: 200px;
   height: 35px;
   background-color: #fff;
-  border-radius: 5px;
   justify-content: space-around;
   align-items: center;
   padding-left: 10px;
   font-size: 1em;
+  display: flex;
+}
+
+.container-ingredients-input {
+  width: 250px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 5px;
+  justify-content: space-around;
+  align-items: center;
   display: flex;
 }
 
@@ -285,6 +294,201 @@ h4 {
   flex-direction: row;
   padding-left: 0;
   display: flex;
+}
+
+.outer-container__recipe-article {
+  color: var(--clr-primary-800);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 50px 300px;
+  display: flex;
+}
+
+.inner-container__recipe-header {
+  width: 100%;
+  display: flex;
+}
+
+.recipe__name {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: medium;
+  display: flex;
+}
+
+h3 {
+  padding-top: 30px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.ingredients-info {
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 250px;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+  position: relative;
+}
+
+.inner-container__recipe-img {
+  width: 60%;
+  height: 50px;
+  border-radius: 5px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 70px;
+  display: flex;
+  position: absolute;
+}
+
+.recipe__img {
+  border-radius: 5px;
+}
+
+.outer-container__nutrients-info-and-health-labels {
+  width: 90%;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  display: flex;
+}
+
+.inner-container-container__nutrients-info {
+  width: 400px;
+  flex-direction: column;
+  padding-top: 80px;
+  display: flex;
+}
+
+.inner-container__nutrients-table {
+  width: 300px;
+}
+
+.outer-container__health-labels {
+  width: 50%;
+}
+
+.recipe__healthLabels {
+  background-color: var(--clr-accent-400);
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 20px;
+  border-style: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  font-family: Poppins, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.calculator__outer-container {
+  width: 100%;
+  flex-flow: wrap;
+  justify-content: center;
+  align-self: center;
+  margin: 60px;
+  padding: 0 200px;
+  display: flex;
+}
+
+.calculator__main-title, .calculator__search, .calculator__product-info, .calculator__servings, .calculator__fetchedData {
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+#searchIngredient {
+  width: 35%;
+  justify-content: space-between;
+  display: flex;
+}
+
+#calculator__servings-form {
+  width: 65%;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.calculator__form-box {
+  width: 60%;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.calculator-product-info-type th {
+  padding-bottom: 10px;
+  padding-right: 50px;
+}
+
+.calculator-fetchedData__type th {
+  text-align: center;
+  padding-right: 50px;
+}
+
+.calculator-fetchedData__data td {
+  padding-bottom: 10px;
+  padding-right: 50px;
+}
+
+.calculator-fetchedData__total-of-data td {
+  border-top: 1px solid #283e53;
+}
+
+#query__calculator {
+  width: 200px;
+  height: 25px;
+}
+
+#calculator-servings-form__input {
+  width: 200px;
+  height: 35px;
+  border: 1px solid var(--clr-primary-800);
+  border-radius: 5px;
+}
+
+.calculator__search-button {
+  margin-left: 80px;
+}
+
+.calculator__main-title h3 {
+  margin-bottom: 25px;
+}
+
+.calculator__fetchedData {
+  margin-top: 25px;
+}
+
+.btn-calculator {
+  border: 1px solid var(--clr-primary-800);
+  background-color: var(--clr-accent-400);
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 1em;
+}
+
+.btn-calculator:hover {
+  cursor: pointer;
+}
+
+.calculator__icon {
+  width: 250px;
+  height: 35px;
+  border: 1px solid var(--clr-primary-800);
+  background-color: #fff;
+  border-radius: 5px;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+#calculator__servings-form input {
+  margin: 0 20px;
 }
 
 /*# sourceMappingURL=index.4d663569.css.map */

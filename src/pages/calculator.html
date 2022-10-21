@@ -5,7 +5,9 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../../assets/fonts/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <script defer type="module" src="../main.js"></script>
+    <script defer src="../calculatorSearch.js" type="module"></script>
 </head>
 <body>
 <header class="outer-container">
@@ -21,32 +23,65 @@
     </div>
 </header>
 
-<main>
-<section>
-    <article>
-        <div>
-            <h2>Calorie Calculator</h2>
-            <form action="">
-                <label for="form__calorie-search">
-                    <input class="form__search-field" id="form__calorie-search" name="calorie-search" type="text" placeholder="Barcode / product">
+<main class="outer-container">
+    <div class="calculator__outer-container">
+        <div class="calculator__main-title">
+            <h3>Calorie Calculator</h3>
+        </div>
+        <div class="calculator__search">
+            <form id="searchIngredient">
+                <label for="query__calculator" class="calculator__icon">
+                    <input type="text" name="query__calculator" id="query__calculator"
+                           placeholder="Barcode / Product">
+                    <i class=material-icons>search</i>
                 </label>
-                <button class="btn btn-form">Search <span>&#8594;</span></button>
+                <button type="submit" class="btn-header btn-calculator">Search <span>&#8594;</span></button>
             </form>
-            <table>
+        </div>
 
+
+        <div class="calculator__product-info">
+            <table>
+                <tr class="calculator-product-info-type">
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Label</th>
+                </tr>
+                <tr class="calculator-product-info-data" id="calculator-product-info-data">
+                </tr>
             </table>
         </div>
-        <div>
 
+        <div class="calculator__servings">
+            <form id="calculator__servings-form">
+                <label for="calculator-servings-form__input" class="calculator__form-box">
+                    Amount
+                    <input type="text" name="calculator-servings-form__input" id="calculator-servings-form__input">
+                    Serving(s)
+                </label>
+                <button type="submit" class="btn-form btn-calculator">+ Add</button>
+            </form>
         </div>
-        <div>
 
+        <div class="calculator__fetchedData">
+            <table id="calculator-data-table">
+                <tr class="calculator-fetchedData__type">
+                    <th>Product</th>
+                    <th>Calories</th>
+                    <th>Fat</th>
+                    <th>Carbs</th>
+                </tr>
+                <tr class="calculator-fetchedData__data" id="calculator-data">
+                </tr>
+                <tr class="calculator-fetchedData__total-of-data" id="calculator-total">
+                    <td>Total</td>
+                    <td id="calculator-total-calories"></td>
+                    <td id="calculator-total-fat"></td>
+                    <td id="calculator-total-carbs"></td>
+                </tr>
+            </table>
         </div>
-        <div>
-
-        </div>
-    </article>
-</section>
+    </div>
 </main>
 
 <footer class="outer-container footer__container">

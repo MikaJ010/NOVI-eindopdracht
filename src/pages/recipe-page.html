@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../../assets/fonts/fonts.css">
     <script defer type="module" src="../main.js"></script>
+    <script defer src="recipe-pages.js" type="module"></script>
 </head>
 <body>
 
@@ -21,65 +22,68 @@
         </nav>
     </div>
 </header>
-
-<main>
     <!--Temporary part (will be injected trough jS later, 27 - 44)-->
-<section class="outer-container">
-    <article class="inner-container">
-       <div>
-           <h2> </h2>
-           <h3> </h3>
-           <ul> </ul>
-       </div> 
+    <main>
+        <section class="outer-container__recipe-article">
+
+
+            <div class="inner-container__recipe-header" id="inner-container__recipe-header"></div>
+            <div class="inner-container__ingredients-list" id="inner-container__ingredient-list">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-info" id="ingredients-info"></ul>
+            </div>
+
+            <div class="inner-container__recipe-img" id="inner-container__recipe-img"></div>
+
+            <div class="outer-container__nutrients-info-and-health-labels">
+            <div class="inner-container__nutrients-info">
+                <h3>Nutrients</h3>
+                <table class="inner-container__nutrients-table" id="nutrients-table">
+                    <thead class="nutrients-table"></thead>
+                </table>
+            </div>
+            <div class="outer-container__health-labels"><h3>Health Labels</h3>
+                <div class="inner-container__health-labels-buttons" id="inner-container__health-labels"></div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="outer-container footer__container">
+        <div class="inner-container footer__list">
+            <h4>Information</h4>
+            <ul>
+                <li>Nullam a enim</li>
+                <li>Quisque cursus</li>
+                <li>Cras egestas</li>
+                <li>Nunc vitae</li>
+            </ul>
+        </div>
+        <div class="inner-container footer__list">
+            <h4>About</h4>
+            <ul>
+                <li>Quisque cursus</li>
+                <li>Cras egestas</li>
+                <li>Nunc vitae</li>
+            </ul>
+        </div>
+        <div class="inner-container footer__list">
+            <h4>Contact</h4>
+            <ul>
+                <li>Cras egestas</li>
+                <li>Nunc vitae</li>
+                <li>Nullam a enim</li>
+            </ul>
+        </div>
         <div>
-            <h3></h3>
-            <div></div>
+            <h4>Social</h4>
+            <div class="footer__social">
+                <img src="../../assets/icons/facebook.png" alt="facebook-icon" class="footer__icons">
+                <img src="../../assets/icons/instagram.png" alt="instagram-icon" class="footer__icons">
+                <img src="../../assets/icons/linkedin.png" alt="linkedin-icon" class="footer__icons">
+                <img src="../../assets/icons/twitter.png" alt="twitter-icon" class="footer__icons">
+            </div>
         </div>
-    </article>
-    <article class="inner-container">
-        <img src="#" alt="">
-        <h3></h3>
-        <table></table>
-    </article>
-</section>
-</main>
-
-<footer class="outer-container footer__container">
-    <div class="inner-container footer__list">
-        <h4>Information</h4>
-        <ul>
-            <li>Nullam a enim</li>
-            <li>Quisque cursus</li>
-            <li>Cras egestas</li>
-            <li>Nunc vitae</li>
-        </ul>
-    </div>
-    <div class="inner-container footer__list">
-        <h4>About</h4>
-        <ul>
-            <li>Quisque cursus</li>
-            <li>Cras egestas</li>
-            <li>Nunc vitae</li>
-        </ul>
-    </div>
-    <div class="inner-container footer__list">
-        <h4>Contact</h4>
-        <ul>
-            <li>Cras egestas</li>
-            <li>Nunc vitae</li>
-            <li>Nullam a enim</li>
-        </ul>
-    </div>
-    <div>
-        <h4>Social</h4>
-        <div class="footer__social">
-            <img src="../../assets/icons/facebook.png" alt="facebook-icon" class="footer__icons">
-            <img src="../../assets/icons/instagram.png" alt="instagram-icon" class="footer__icons">
-            <img src="../../assets/icons/linkedin.png" alt="linkedin-icon" class="footer__icons">
-            <img src="../../assets/icons/twitter.png" alt="twitter-icon" class="footer__icons">
-        </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>

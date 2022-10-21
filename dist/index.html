@@ -5,7 +5,9 @@
     <title>The Clueless Cook</title>
     <link rel="stylesheet" href="/index.4d663569.css">
     <link rel="stylesheet" href="/index.4a39348a.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <script defer="" src="/index.4d6bcbeb.js"></script>
+
 </head>
 <body>
 <header class="outer-container">
@@ -35,7 +37,6 @@
             <div class="inner-container white-space">
 
                 <ul id="random-recipe-container">
-                    <!--                Cards via innerhtml-->
                 </ul>
                 <p id="upper-error"></p>
             </div>
@@ -45,8 +46,9 @@
     <section class="outer-container main__search-form-container">
         <div class="inner-container">
             <form id="onSubmit" class="main__search-form" action="">
-                <label for="ingredient-field">
+                <label for="ingredient-field" class="container-ingredients-input">
                     <input class="form__ingredient-field" id="ingredient-field" name="ingredient-field" type="text" placeholder="Recipe search">
+                    <i class="material-icons">search</i>
                 </label>
                 <label for="meal-type">
                     <select required="" name="meal-typ" id="meal-type">
@@ -115,7 +117,6 @@
         <div class="inner-container">
 
             <ul id="main__recipe-list" class="main__result-recipe-cards">
-<!--                Cards via innerhtml-->
             </ul>
         </div>
     </section>

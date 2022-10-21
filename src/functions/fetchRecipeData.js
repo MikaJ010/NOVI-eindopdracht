@@ -30,7 +30,7 @@ export default async function fetchRecipeData( searchQuery, mealType, cuisineTyp
         const arrayOfRecipes = response.data.hits;
         // console.log(arrayOfRecipes);
         createRecipeCard(arrayOfRecipes);
-        console.log(arrayOfRecipes);
+        // console.log(arrayOfRecipes);
 // catch error en show in UI
     } catch (e) {
         const error = document.getElementById('main-error');

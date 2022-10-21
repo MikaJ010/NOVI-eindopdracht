@@ -1,0 +1,58 @@
+import axios from "axios";
+import {
+    createRecipeTitel,
+    createRecipeIngredientList,
+    createRecipeImage,
+    createNutrientsList,
+    createRecipeHealthLabels
+} from "../functions/fetchRecipePageData"
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    event.preventDefault()
+
+    const parameters = new URLSearchParams(window.location.search)
+    const id = parameters.get("id")
+
+    // Declare function to fetch the data needed for the specific recipe information
+    async function fetchRecipePageData() {
+
+        // Declare input values for API
+        const URI = "https://api.edamam.com";
+        const ENDPOINT = "/api/recipes/v2/";
+        // ID + KEY in README zetten en uitleggen waar te plaatsen
+        const API_ID = "5bfce901";
+        const API_KEY = "0429e1bb472814f5b7f052c5e546afac";
+        // Fetch data from API
+        try {
+            const response = await axios.get(URI + ENDPOINT + id, {
+                params: {
+                    type: "public",
+                    app_id: API_ID,
+                    app_key: API_KEY,
+                    id: id
+                }
+            })
+
+            // Variable that holds the needed recipe data fetched from the API
+            const recipeInfo = response.data.recipe;
+            // Invoke function to fetch the specific info of recipes
+            createRecipeTitel(recipeInfo);
+            createRecipeIngredientList(recipeInfo);
+            createRecipeImage(recipeInfo);
+            createNutrientsList(recipeInfo);
+            createRecipeHealthLabels(recipeInfo);
+        } catch (e) {
+            const error = document.getElementById("error-message")
+            if (e.response.status === 404) {
+                error.textContent = "page not found"
+            } else if (e.response.status === 500) {
+                error.textContent = "internal server error"
+            }
+        }
+
+    }
+
+    // Invoke function to fetch the specific info of recipes
+    fetchRecipePageData()
+});

@@ -537,6 +537,7 @@ var _fetchRecipeData = require("./functions/fetchRecipeData");
 var _fetchRecipeDataDefault = parcelHelpers.interopDefault(_fetchRecipeData);
 var _fetchRecipesUpper = require("./functions/fetchRecipesUpper");
 var _fetchRecipesUpperDefault = parcelHelpers.interopDefault(_fetchRecipesUpper);
+// import fetchRecipePageInfo from "./functions/fetchRecipePageData"
 (0, _fetchRecipesUpperDefault.default)("salt");
 const ingredients = document.getElementById("ingredient-field");
 const mealType = document.getElementById("meal-type");
@@ -544,11 +545,11 @@ const cuisineType = document.getElementById("cuisine-type");
 const dietType = document.getElementById("diet-type");
 const time = document.getElementById("time-field");
 const handleSubmit = document.getElementById("onSubmit");
-handleSubmit.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    if (ingredients.value === "") ;
-    else (0, _fetchRecipeDataDefault.default)(ingredients.value, mealType.value, cuisineType.value, dietType.value, time.value);
-});
+handleSubmit.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    (0, _fetchRecipeDataDefault.default)(ingredients.value, mealType.value, cuisineType.value, dietType.value, time.value);
+}); // fetchRecipePageInfo();
+ // const linkTorecipeInfoPage = document.getElementById('link-to-recipe-page')
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeData":"4FvxE","./functions/fetchRecipesUpper":"7LHtl"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -612,7 +613,7 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dietType) {
         const arrayOfRecipes = response.data.hits;
         // console.log(arrayOfRecipes);
         (0, _createRecipeCardDefault.default)(arrayOfRecipes);
-        console.log(arrayOfRecipes);
+    // console.log(arrayOfRecipes);
     // catch error en show in UI
     } catch (e) {
         const error = document.getElementById("main-error");
@@ -3987,13 +3988,20 @@ function createRecipeCard(arr) {
     timeIcon.src = require("../../assets/icons/time.svg");
     arr.slice(0, 6).map((item)=>{
         //rounding down calories
+        const id = item.recipe.uri.split("_")[1];
         const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += `
-            <li class="card"><a href="https://google.com">
+            <li class="card">
+            <a id="link-to-recipe-page" href="pages/recipe-page.html?id=${id}"> 
                 <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
                 <div class="card-padding">
                 <h5 class="recipe-card__label">${item.recipe.label.slice(0, 40)}</h5>
-                <div class="card-content-position"><p class="recipe-card__info"><strong>${roundedCalories}</strong> Calories | <strong>${item.recipe.ingredients.length}</strong> Ingredients <span class="margin-text-card"></span><img class='time-icon' src=${timeIcon.src} alt="timeIcon"> ${item.recipe.totalTime} min.</p> </div>
+                <div class="card-content-position"><p class="recipe-card__info">
+                <strong>${roundedCalories}</strong> Calories | 
+                <strong>${item.recipe.ingredients.length}</strong> Ingredients 
+                <span class="margin-text-card"></span>
+                <img class='time-icon' src=${timeIcon.src} alt="timeIcon"> ${item.recipe.totalTime} min.</p> 
+                </div>
                 </div>
 
             </a></li>
@@ -4062,58 +4070,14 @@ async function fetchRecipesUpper(ingredient) {
             }
         });
         const arrayOfRecipes = response.data.hits;
-        (0, _createRecipesCardUpperDefault.default)(arrayOfRecipes);
         arrayOfRecipes.slice(0, 2);
+        (0, _createRecipesCardUpperDefault.default)(arrayOfRecipes);
     } catch (e) {
         const error = document.getElementById("upper-error");
         if (e.response.status === 404) error.textContent = "page not found";
         else if (e.response.status === 500) error.textContent = "internal server error";
     }
-} // fetchRecipesUpper('salt');
- // import axios from 'axios';
- // import createRecipesCardUpper from './createRecipesCardUpper';
- //
- //
- // // Fetching data from API Edamam
- // async function fetchRecipesUpper(searchQ) {
- //     // Declare input value for API
- //     const URI = 'https://api.edamam.com';
- //     const ENDPOINT = '/api/recipes/v2';
- //     // API id + key (in readme zetten en uitleggen waar te plaatsen)
- //     const API_ID = '5bfce901';
- //     const API_KEY = '0429e1bb472814f5b7f052c5e546afac';
- //
- //     // If successful
- //     try {
- //         const response = axios.get(URI + ENDPOINT, {
- //             params: {
- //                 type: "public",
- //                 app_id: API_ID,
- //                 app_key: API_KEY,
- //                 q: searchQ,
- //                 random: true,
- //             }
- //         });
- //
- //         // console.log(response.data.hits)
- //         const arrayOfRecipes = response.data.hits;
- //         arrayOfRecipes.slice(0, 2)
- //
- //         createRecipesCardUpper(arrayOfRecipes);
- // // catch error en show in UI
- //     } catch (e) {
- //         const error = document.getElementById('upper-error');
- //         error.innertext = '';
- //         if (e.response.status === 404) {
- //             error.innerText = 'page not found'
- //         } else if (e.response.status === 500) {
- //             error.innerText = 'internal server error'
- //         }
- //
- //     }
- // }
- //
- // // fetchRecipesUpper('salt');
+}
 exports.default = fetchRecipesUpper;
 
 },{"axios":"jo6P5","./createRecipesCardUpper":"3Jfwx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3Jfwx":[function(require,module,exports) {
@@ -4125,39 +4089,21 @@ function createRecipesCardUpper(arr) {
     const timeIcon = new Image();
     timeIcon.src = require("../../assets/icons/time.svg");
     arr.slice(0, 3).map((item)=>{
+        const id = item.recipe.uri.split("_")[1];
         const roundedCalories = Math.round(item.recipe.calories);
         recipesListUpper.innerHTML += `
-            <li class="card"><a href="https://google.com">
+            <li class="card">
+            <a href="pages/recipe-page.html?id=${id}">
                 <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
                 <div class="card-padding">
                 <h5 class="recipe-card__label">${item.recipe.label.slice(0, 35)}</h5>
                 <div class="card-content-position"><p class="recipe-card__info"><strong>${roundedCalories}</strong> Calories | <strong>${item.recipe.ingredients.length}</strong> Ingredients <span class="margin-text-card"></span><img class='time-icon' src=${timeIcon.src} alt="timeIcon"> ${item.recipe.totalTime} min.</p> </div>
                 </div>
-            </a></li> 
+            </a>
+            </li> 
         `;
     });
-} // export default function createRecipesCardUpper(arr) {
- //     const recipeListUpper = document.getElementById('random-recipe-container');
- //     recipeListUpper.innerHTML = '';
- //
- //     arr.slice(0, 3).map((item) => {
- //
- //             //rounding down calories
- //             const caloriesRounded = Math.round(item.recipe.calories);
- //
- //             recipeListUpper.innerHTML += `
- //             <li class="card">
- //                 <img class="recipe-card__img" src="${item.recipe.image}" alt="foodimage">
- //                 <div class="card-padding">
- //                 <h5 class="recipe-card__label">${item.recipe.label}</h5>
- //                 <p class="recipe-card__info">${caloriesRounded}  Calories | ${item.recipe.ingredients.length} Ingredients</p>
- // <!--                <span><img src="../../assets/icons/time.png" alt="time-icon"></span>-->
- //                 </div>
- //             </li>
- //         `
- //         }
- //     )
- //
+}
 exports.default = createRecipesCardUpper;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../assets/icons/time.svg":"9PaDs"}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire19ff")
